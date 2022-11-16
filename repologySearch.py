@@ -67,7 +67,7 @@ def main():
     url = 'https://repology.org/api/v1/projects/?search='
     url += args.name
     url += '&maintainer=&category=&inrepo=&notinrepo=&repos=&families='
-    url += '&repos_newest=&families_newest=&newest=on'
+    url += '&repos_newest=&families_newest=&newest='
     packages = getPackages(url)
     for p in packages:
         if args.repo:
