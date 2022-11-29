@@ -40,6 +40,11 @@ def pprintPackage(package: dict):
     for k in package.keys():
         print(k, ":", package[k])
 
+def pprintPackageSameLine(package: dict):
+    for k in package.keys():
+        print(k, ":", str(package[k]) + ", ", end="")
+    print()
+
 def main():
     parser = argparse.ArgumentParser(
         description="Search for packages using repologys package database."
@@ -61,6 +66,13 @@ def main():
         help="Filter output for a Repository. The argument for this flag is"
         + " a regular expression. For example to match the searchterm exactly"
         + " ^repo$ could be used."
+    )
+    parser.add_argument(
+        "-l",
+        "--same-line",
+        dest="same_line",
+        action="store_true",
+        help="Print one package per line (can be usefull for other tools).",
     )
     args = parser.parse_args()
 
@@ -87,7 +99,10 @@ def main():
                 continue
 
         print()
-        pprintPackage(p)
+        if(args.same_line):
+            pprintPackageSameLine(p)
+        else:
+            pprintPackage(p)
 
 if __name__ == "__main__":
     main()
