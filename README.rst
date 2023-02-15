@@ -1,3 +1,5 @@
+Moved to: https://codeberg.org/geronymo/repologySearch
+
 Simple (commandline) programm to search for packages on https://repology.org/.
 
 Get a short help message with::
